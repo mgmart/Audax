@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtrx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:trp="http://www.garmin.com/xmlschemas/TripExtensions/v1" xmlns:adv="http://www.garmin.com/xmlschemas/AdventuresExtensions/v1" xmlns:prs="http://www.garmin.com/xmlschemas/PressureExtension/v1" creator="Garmin Desktop App" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/ActivityExtension/v1 http://www8.garmin.com/xmlschemas/ActivityExtensionv1.xsd http://www.garmin.com/xmlschemas/AdventuresExtensions/v1 http://www8.garmin.com/xmlschemas/AdventuresExtensionv1.xsd http://www.garmin.com/xmlschemas/PressureExtension/v1 http://www.garmin.com/xmlschemas/PressureExtensionv1.xsd http://www.garmin.com/xmlschemas/TripExtensions/v1 http://www.garmin.com/xmlschemas/TripExtensionsv1.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2013-03-08T17:16:05Z</time>
+    <bounds maxlat="50.684674372896552" maxlon="7.159571405500174" minlat="50.680460790172219" minlon="7.149139791727066"/>
+  </metadata>
+
+  <wpt lat="50.681395372375846" lon="7.153944969177246">
+    <time>2012-05-05T10:14:14Z</time>
+    <name>Bad Godesberger Redoute</name>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>GA Tour Material</gpxx:Category>
+          <gpxx:Category>GA Tour Material 2</gpxx:Category>
+          <gpxx:Category>GpxViewer</gpxx:Category>
+        </gpxx:Categories>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <trk>
+    <name>WasserburgenRoute</name>
+    <extensions>
+      <gpxx:TrackExtension>
+        <gpxx:DisplayColor>DarkGray</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="50.683153392747045" lon="7.159571405500174"/>
+      <trkpt lat="50.683590173721313" lon="7.158776046708226"/>
+      <trkpt lat="50.683032106608152" lon="7.157595455646515"/>
+      <trkpt lat="50.682749133557081" lon="7.156757768243551"/>
+      <trkpt lat="50.682451659813523" lon="7.157830651849508"/>
+      <trkpt lat="50.680939145386219" lon="7.155980430543423"/>
+      <trkpt lat="50.680657345801592" lon="7.155213486403227"/>
+      <trkpt lat="50.680460790172219" lon="7.154160216450691"/>
+      <trkpt lat="50.68121524527669" lon="7.153564430773258"/>
+      <trkpt lat="50.681355642154813" lon="7.153912531211972"/>
+      <trkpt lat="50.681932736188173" lon="7.153465272858739"/>
+      <trkpt lat="50.681992080062628" lon="7.151552941650152"/>
+      <trkpt lat="50.682653328403831" lon="7.150748614221811"/>
+      <trkpt lat="50.683046272024512" lon="7.150025591254234"/>
+      <trkpt lat="50.683593107387424" lon="7.150499084964395"/>
+      <trkpt lat="50.683975908905268" lon="7.149139791727066"/>
+      <trkpt lat="50.684203812852502" lon="7.149342969059944"/>
+      <trkpt lat="50.684263408184052" lon="7.150260284543037"/>
+      <trkpt lat="50.684674372896552" lon="7.15066839940846"/>
+    </trkseg>
+  </trk>
+
+</gpx>

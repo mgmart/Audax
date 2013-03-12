@@ -18,6 +18,11 @@
 		7488049C16EA5029004E8DD0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7488049B16EA5029004E8DD0 /* Default-568h@2x.png */; };
 		7488049F16EA5029004E8DD0 /* GpxViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7488049E16EA5029004E8DD0 /* GpxViewViewController.m */; };
 		748804A216EA5029004E8DD0 /* GpxViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748804A016EA5029004E8DD0 /* GpxViewViewController.xib */; };
+		748804A916EA5558004E8DD0 /* GpxViewer.GPX in Resources */ = {isa = PBXBuildFile; fileRef = 748804A816EA5558004E8DD0 /* GpxViewer.GPX */; };
+		748804DC16ECF577004E8DD0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748804DB16ECF577004E8DD0 /* MapKit.framework */; };
+		748804DE16ECF82D004E8DD0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748804DD16ECF82D004E8DD0 /* CoreLocation.framework */; };
+		748804E116ECFD4C004E8DD0 /* SHMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 748804E016ECFD4C004E8DD0 /* SHMapPoint.m */; };
+		7499153A16EF1A39007269CC /* GpsTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7499153916EF1A39007269CC /* GpsTrack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,13 @@
 		7488049D16EA5029004E8DD0 /* GpxViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GpxViewViewController.h; sourceTree = "<group>"; };
 		7488049E16EA5029004E8DD0 /* GpxViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GpxViewViewController.m; sourceTree = "<group>"; };
 		748804A116EA5029004E8DD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GpxViewViewController.xib; sourceTree = "<group>"; };
+		748804A816EA5558004E8DD0 /* GpxViewer.GPX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GpxViewer.GPX; sourceTree = "<group>"; };
+		748804DB16ECF577004E8DD0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		748804DD16ECF82D004E8DD0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		748804DF16ECFD4C004E8DD0 /* SHMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMapPoint.h; sourceTree = "<group>"; };
+		748804E016ECFD4C004E8DD0 /* SHMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMapPoint.m; sourceTree = "<group>"; };
+		7499153816EF1A39007269CC /* GpsTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsTrack.h; sourceTree = "<group>"; };
+		7499153916EF1A39007269CC /* GpsTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsTrack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				748804DE16ECF82D004E8DD0 /* CoreLocation.framework in Frameworks */,
+				748804DC16ECF577004E8DD0 /* MapKit.framework in Frameworks */,
 				7488048616EA5029004E8DD0 /* UIKit.framework in Frameworks */,
 				7488048816EA5029004E8DD0 /* Foundation.framework in Frameworks */,
 				7488048A16EA5029004E8DD0 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +87,8 @@
 		7488048416EA5029004E8DD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				748804DD16ECF82D004E8DD0 /* CoreLocation.framework */,
+				748804DB16ECF577004E8DD0 /* MapKit.framework */,
 				7488048516EA5029004E8DD0 /* UIKit.framework */,
 				7488048716EA5029004E8DD0 /* Foundation.framework */,
 				7488048916EA5029004E8DD0 /* CoreGraphics.framework */,
@@ -88,6 +104,10 @@
 				7488049D16EA5029004E8DD0 /* GpxViewViewController.h */,
 				7488049E16EA5029004E8DD0 /* GpxViewViewController.m */,
 				748804A016EA5029004E8DD0 /* GpxViewViewController.xib */,
+				748804DF16ECFD4C004E8DD0 /* SHMapPoint.h */,
+				748804E016ECFD4C004E8DD0 /* SHMapPoint.m */,
+				7499153816EF1A39007269CC /* GpsTrack.h */,
+				7499153916EF1A39007269CC /* GpsTrack.m */,
 				7488048C16EA5029004E8DD0 /* Supporting Files */,
 			);
 			path = GpxView;
@@ -97,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				7488048D16EA5029004E8DD0 /* GpxView-Info.plist */,
+				748804A816EA5558004E8DD0 /* GpxViewer.GPX */,
 				7488048E16EA5029004E8DD0 /* InfoPlist.strings */,
 				7488049116EA5029004E8DD0 /* main.m */,
 				7488049316EA5029004E8DD0 /* GpxView-Prefix.pch */,
@@ -164,6 +185,7 @@
 				7488049A16EA5029004E8DD0 /* Default@2x.png in Resources */,
 				7488049C16EA5029004E8DD0 /* Default-568h@2x.png in Resources */,
 				748804A216EA5029004E8DD0 /* GpxViewViewController.xib in Resources */,
+				748804A916EA5558004E8DD0 /* GpxViewer.GPX in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +199,8 @@
 				7488049216EA5029004E8DD0 /* main.m in Sources */,
 				7488049616EA5029004E8DD0 /* GpxViewAppDelegate.m in Sources */,
 				7488049F16EA5029004E8DD0 /* GpxViewViewController.m in Sources */,
+				748804E116ECFD4C004E8DD0 /* SHMapPoint.m in Sources */,
+				7499153A16EF1A39007269CC /* GpsTrack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +323,7 @@
 				748804A716EA5029004E8DD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
