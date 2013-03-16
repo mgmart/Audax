@@ -10,14 +10,13 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "SHMapPoint.h"
+#import "GpsTrack.h"
 
-@interface GpxViewViewController : UIViewController <NSXMLParserDelegate, MKMapViewDelegate>
+@interface GpxViewViewController : UIViewController <MKMapViewDelegate>
 {
-    NSXMLParser *addressParser;
     IBOutlet MKMapView *worldView;
-    SHMapPoint *mapPoint;
-    NSMutableString *currentStringValue;
-    NSString *topLevel;
 }
 
+- (void)showMap:(MKCoordinateRegion)region;
+- (void)addAnnotations:(NSArray *)annotations;
 @end

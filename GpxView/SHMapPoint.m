@@ -10,7 +10,7 @@
 
 @implementation SHMapPoint
 
-@synthesize coordinate, title, time, flags;
+@synthesize coordinate, title, time, flags, toDistance, fromDistance;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c title:(NSString *)t
 {
@@ -26,4 +26,8 @@
     return [self initWithCoordinate:CLLocationCoordinate2DMake(50.68200, 7.14634) title:@"BJCastle"];
 }
 
+- (NSString *)description
+{
+    return [[NSString alloc] initWithFormat:@"Title: %@, Created: %@, Symbol: %@", title, time, flags];
+}
 @end

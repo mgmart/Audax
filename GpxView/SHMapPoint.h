@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSDate *time;
 @property (nonatomic, copy) NSString *flags;
+@property (nonatomic) CLLocationDistance toDistance, fromDistance;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c title:(NSString *)t;
 
