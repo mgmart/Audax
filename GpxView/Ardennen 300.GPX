@@ -5,7 +5,7 @@
     <link href="http://www.garmin.com">
       <text>Garmin International</text>
     </link>
-    <time>2013-03-16T17:16:58Z</time>
+    <time>2013-03-16T17:31:54Z</time>
     <bounds maxlat="50.844391705468297" maxlon="5.937252044677734" minlat="50.005688667297363" minlon="5.171797536313534"/>
   </metadata>
 
@@ -15,7 +15,7 @@
     <name>Controle Bastogne</name>
     <cmt>Place Saint-Pierre en Place En Piconrue</cmt>
     <desc>Place Saint-Pierre en Place En Piconrue</desc>
-    <sym>Flag, Blue</sym>
+    <sym>Number 3, Blue</sym>
     <type>user</type>
     <extensions>
       <gpxx:WaypointExtension>
@@ -33,7 +33,7 @@
     <name>Controle Huy</name>
     <cmt>N-weg</cmt>
     <desc>N-weg</desc>
-    <sym>Flag, Blue</sym>
+    <sym>Number 5, Blue</sym>
     <type>user</type>
     <extensions>
       <gpxx:WaypointExtension>
@@ -51,7 +51,7 @@
     <name>Controle Lierneux</name>
     <cmt>Rue de la Gare</cmt>
     <desc>Rue de la Gare</desc>
-    <sym>Flag, Blue</sym>
+    <sym>Number 2, Blue</sym>
     <type>user</type>
     <extensions>
       <gpxx:WaypointExtension>
@@ -69,7 +69,7 @@
     <name>Controle Nessonvaux</name>
     <cmt>Rue Franklin Roosevelt 264</cmt>
     <desc>Rue Franklin Roosevelt 264</desc>
-    <sym>Flag, Blue</sym>
+    <sym>Number 1, Blue</sym>
     <type>user</type>
     <extensions>
       <gpxx:WaypointExtension>
@@ -87,7 +87,7 @@
     <name>Controle Rochefort</name>
     <cmt>Rue de Behogne en Rue de la Libération en Rue de Dewoin en Rue Du Thiers</cmt>
     <desc>Rue de Behogne en Rue de la Libération en Rue de Dewoin en Rue Du Thiers</desc>
-    <sym>Flag, Blue</sym>
+    <sym>Number 4, Blue</sym>
     <type>user</type>
     <extensions>
       <gpxx:WaypointExtension>
@@ -113,7 +113,7 @@ Maastricht</cmt>
 Maasboulevard 101
 
 Maastricht</desc>
-    <sym>Flag, Blue</sym>
+    <sym>Number 0, Blue</sym>
     <type>user</type>
     <extensions>
       <gpxx:WaypointExtension>

@@ -12,7 +12,7 @@
 #import "SHMapPoint.h"
 #import "GpxViewViewController.h"
 
-#define INITIAL_POINT_SPACE 1000
+#define INITIAL_POINT_SPACE 3000
 
 @interface GpsTrack : NSObject  <NSXMLParserDelegate>
 {
@@ -38,5 +38,6 @@
 
 - (id)initWithFile:(NSURL *)fileName sender:(id)s;
 - (double)length;
-
+- (MKCoordinateRegion)region;
+- (NSArray *)controls;
 @end

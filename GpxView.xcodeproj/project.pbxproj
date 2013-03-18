@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		746BCC3816F4E0AE00CF52E8 /* Ardennen 300.GPX in Resources */ = {isa = PBXBuildFile; fileRef = 746BCC3716F4E0AE00CF52E8 /* Ardennen 300.GPX */; };
+		74854FC616F758E600347AB9 /* WaypointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74854FC416F758E600347AB9 /* WaypointViewController.m */; };
+		74854FC716F758E600347AB9 /* WaypointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74854FC516F758E600347AB9 /* WaypointViewController.xib */; };
 		7488048616EA5029004E8DD0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7488048516EA5029004E8DD0 /* UIKit.framework */; };
 		7488048816EA5029004E8DD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7488048716EA5029004E8DD0 /* Foundation.framework */; };
 		7488048A16EA5029004E8DD0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7488048916EA5029004E8DD0 /* CoreGraphics.framework */; };
@@ -28,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		746BCC3716F4E0AE00CF52E8 /* Ardennen 300.GPX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Ardennen 300.GPX"; sourceTree = "<group>"; };
+		74854FC316F758E600347AB9 /* WaypointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaypointViewController.h; sourceTree = "<group>"; };
+		74854FC416F758E600347AB9 /* WaypointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaypointViewController.m; sourceTree = "<group>"; };
+		74854FC516F758E600347AB9 /* WaypointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaypointViewController.xib; sourceTree = "<group>"; };
 		7488048216EA5029004E8DD0 /* GpxView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GpxView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7488048516EA5029004E8DD0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7488048716EA5029004E8DD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,6 +115,9 @@
 				748804E016ECFD4C004E8DD0 /* SHMapPoint.m */,
 				7499153816EF1A39007269CC /* GpsTrack.h */,
 				7499153916EF1A39007269CC /* GpsTrack.m */,
+				74854FC316F758E600347AB9 /* WaypointViewController.h */,
+				74854FC416F758E600347AB9 /* WaypointViewController.m */,
+				74854FC516F758E600347AB9 /* WaypointViewController.xib */,
 				7488048C16EA5029004E8DD0 /* Supporting Files */,
 			);
 			path = GpxView;
@@ -190,6 +198,7 @@
 				748804A216EA5029004E8DD0 /* GpxViewViewController.xib in Resources */,
 				748804A916EA5558004E8DD0 /* GpxViewer.GPX in Resources */,
 				746BCC3816F4E0AE00CF52E8 /* Ardennen 300.GPX in Resources */,
+				74854FC716F758E600347AB9 /* WaypointViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +214,7 @@
 				7488049F16EA5029004E8DD0 /* GpxViewViewController.m in Sources */,
 				748804E116ECFD4C004E8DD0 /* SHMapPoint.m in Sources */,
 				7499153A16EF1A39007269CC /* GpsTrack.m in Sources */,
+				74854FC616F758E600347AB9 /* WaypointViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

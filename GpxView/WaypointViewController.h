@@ -1,0 +1,13 @@
+//
+//  WaypointViewController.h
+//  GpxView
+//
+//  Created by Mario Martelli on 18.03.13.
+//  Copyright (c) 2013 Schnuddel Huddel. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface WaypointViewController : UIViewController
+
+@end

@@ -23,6 +23,47 @@
     return metersApart;
 }
 
+- (NSArray *)controls
+{
+    return mapPoints;
+}
+
+// returns the region for the track
+// can be used for showing the entire track in map view
+- (MKCoordinateRegion)region
+{
+    MKCoordinateRegion region;
+    CLLocationCoordinate2D coord;
+    
+    CLLocationDegrees maxLat = -90;
+    CLLocationDegrees maxLon = -180;
+    CLLocationDegrees minLat = 90;
+    CLLocationDegrees minLon = 180;
+    
+    for(int idx = 0; idx < pointCount; idx++) {
+        coord = MKCoordinateForMapPoint(trackpoints[idx]);
+        if (coord.latitude > maxLat) {
+            maxLat = coord.latitude;
+        }
+        if (coord.latitude < minLat) {
+            minLat = coord.latitude;
+        }
+        if (coord.longitude > maxLon) {
+            maxLon = coord.longitude;
+        }
+        if (coord.longitude < minLon) {
+            minLon = coord.longitude;
+        }
+    }
+    
+    region.center.latitude     = (maxLat + minLat) / 2;
+    region.center.longitude    = (maxLon + minLon) / 2;
+    region.span.latitudeDelta  = maxLat - minLat;
+    region.span.longitudeDelta = maxLon - minLon;
+    
+    return region;
+}
+
 #pragma mark XML Parsing
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
@@ -84,11 +125,25 @@
     }
     
     else if ([elementName isEqualToString:@"sym"] && [topLevel isEqualToString:@"wpt"]) {
+        NSRange range;
+        range.length = 1;
+        range.location = 7;
+        
+        if ([currentStringValue hasPrefix:@"Number "]) {
+            NSLog(@"Number: %@", [currentStringValue substringWithRange:range]);
+            [mapPoint setOrder:[NSNumber numberWithInteger:[[currentStringValue substringWithRange:range] integerValue]]];
+        }
         [mapPoint setFlags:currentStringValue];
         currentStringValue = nil;
     }
     else if ([elementName isEqualToString:@"name"] && [topLevel isEqualToString:@"wpt"]) {
         [mapPoint setTitle:currentStringValue];
+        currentStringValue = nil;
+    }
+    // Extract the comment as a subtitle for the waypoint
+    // cmt could also be present in <desc> node.
+    else if ([elementName isEqualToString:@"cmt"] && [topLevel isEqualToString:@"wpt"]) {
+        [mapPoint setSubtitle:currentStringValue];
         currentStringValue = nil;
     }
 }
@@ -118,8 +173,11 @@
 {
     for (mapPoint in mapPoints) {
         NSLog(@"Mappoint: %@", mapPoint);
+        // Distance from last control
+        // Calculate opening and closing time 
     }
-    // DELETE this when ready
+    
+    // FIXME tight coupling of controller!
     [sender addAnnotations:mapPoints];
     
     
@@ -132,12 +190,15 @@
     int pointSpace = INITIAL_POINT_SPACE;
     
     self = [super init];
-    if (self) {        
+    if (self) {
+        // FIXME: this has to be altered if necessary!
+        //        3000 trackpoints are sufficcient for max 600km.
         trackpoints = malloc(sizeof(MKMapPoint) * pointSpace);
         pointCount = 0;
         
         mapPoints = [[NSMutableArray alloc] initWithCapacity:100];
         
+        // FIXME tight coupling of controller
         sender = s;
         [self parseXMLFile:fileName];
         startTime = [NSDate date];

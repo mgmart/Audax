@@ -14,21 +14,22 @@
 
 @implementation GpxViewViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    SHMapPoint *point = [[SHMapPoint alloc] init];
-    [worldView addAnnotation:point];
+//    SHMapPoint *point = [[SHMapPoint alloc] init];
+//    [worldView addAnnotation:point];
     
-    NSURL* url = [[NSBundle mainBundle] URLForResource:@"GpxViewer" withExtension:@"GPX"];
+//  NSURL* url = [[NSBundle mainBundle] URLForResource:@"GpxViewer" withExtension:@"GPX"];
+    NSURL* url = [[NSBundle mainBundle] URLForResource:@"Ardennen 300" withExtension:@"GPX"];
     GpsTrack *track = [[GpsTrack alloc] initWithFile:url sender:self];
     NSLog(@"Distance is: %f", [track length]);
     MKPolyline *poly = [track poly];
 //    NSLog(@"Poly: %@, %@", poly.)
-    
+    NSLog(@"Controls: %@", [track controls]);
     [worldView addOverlay:poly];
+    [self showMap:[track region]];
 
 }
 
@@ -51,7 +52,6 @@
     }
     return nil;
 }
-
 
 
 // DELETE this when ready for next steps
