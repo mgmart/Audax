@@ -23,10 +23,24 @@
     return self;
 }
 
+- (id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle
+{
+    self = [super init];
+    if (self) {
+        myTitle = title;
+        mySubtitle = subtitle;
+        myTime = [NSDate date];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [[self titleLabel] setText:myTitle];
+    [[self subtitleLabel] setText:mySubtitle];
+    [[self timeLabel] setText:[myTime description]];
 }
 
 - (void)didReceiveMemoryWarning

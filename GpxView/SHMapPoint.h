@@ -21,5 +21,6 @@
 @property (nonatomic) NSNumber *order;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c title:(NSString *)t;
+- (NSComparisonResult)compare:(id)obj2;
 
 @end

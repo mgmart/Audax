@@ -30,4 +30,12 @@
 {
     return [[NSString alloc] initWithFormat:@"Title: %@, Order: %@, Symbol: %@", title, order, flags];
 }
+
+/*
+ * compare trading info's based on their trade date so they sort acording to their date
+ */
+- (NSComparisonResult)compare:(id)obj2 {
+    return [[self order] compare:[obj2 order]];
+}
+
 @end

@@ -11,12 +11,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import "SHMapPoint.h"
 #import "GpsTrack.h"
+#import "WaypointViewController.h"
 
 @interface GpxViewViewController : UIViewController <MKMapViewDelegate>
 {
     IBOutlet MKMapView *worldView;
 }
 
-- (void)showMap:(MKCoordinateRegion)region;
-- (void)addAnnotations:(NSArray *)annotations;
 @end

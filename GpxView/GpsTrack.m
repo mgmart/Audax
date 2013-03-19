@@ -5,6 +5,15 @@
 //  Created by Mario Martelli on 12.03.13.
 //  Copyright (c) 2013 Schnuddel Huddel. All rights reserved.
 //
+/*
+ 
+        GPXTrack
+ 
+ Class to manage the model of a GPS Trackfile
+ 
+ TODO: Introduce elevation to calculate proximate speed regarding the elevation profile of the track.
+ 
+ */
 
 #import "GpsTrack.h"
 
@@ -26,6 +35,26 @@
 - (NSArray *)controls
 {
     return mapPoints;
+}
+
+// calculate segments between controls
+- (void)calculateSegements
+{
+    // Find nearest Trackpoint to Waypoint
+    NSLog(@"In calculate segments");
+    CLLocationCoordinate2D prevPoint;
+  //  mapPoints sortUsingDescriptors:<#(NSArray *)#>
+    for (SHMapPoint *point in mapPoints) {
+        NSLog(@"Map point count %@", point);
+        
+        CLLocation *pointLocation = [[CLLocation alloc] initWithLatitude:point.coordinate.latitude longitude:point.coordinate.longitude];
+        for (CLLocation *curr in coordinates){
+            if ([pointLocation distanceFromLocation:curr] < 100){
+                NSLog(@"Point: %f", [pointLocation distanceFromLocation:curr]);
+            }
+                
+        }
+    }
 }
 
 // returns the region for the track
@@ -73,6 +102,7 @@
         CLLocationCoordinate2D loc;
         loc.latitude = [[attributeDict valueForKey:@"lat" ] doubleValue];
         loc.longitude = [[attributeDict valueForKey:@"lon" ] doubleValue];
+        [coordinates addObject:[[CLLocation alloc] initWithLatitude:loc.latitude longitude:loc.longitude]];
         MKMapPoint point = MKMapPointForCoordinate(loc);
         trackpoints[pointCount++] = point;
         return;
@@ -104,17 +134,10 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     if ([elementName isEqualToString:@"wpt"]) {
-        
         [mapPoints addObject:mapPoint];
-        CLLocationCoordinate2D loc = [mapPoint coordinate];
-        // [worldView addAnnotation:mapPoint];
-        
-        // Show the region on the Mapview
-        // DELETE this when ready for next steps
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
-        [[self sender] showMap:region];
-
-        // Prepare buffer and declare toplevel node
+        if ([mapPoint order]) {
+            [controls addObject:mapPoint];
+        }
         topLevel = nil;
         currentStringValue = nil;
     }
@@ -169,23 +192,23 @@
     // if not successful, delegate is informed of error
 }
 
-- (void)initialiseWayPoints
-{
-    for (mapPoint in mapPoints) {
-        NSLog(@"Mappoint: %@", mapPoint);
-        // Distance from last control
-        // Calculate opening and closing time 
-    }
-    
-    // FIXME tight coupling of controller!
-    [sender addAnnotations:mapPoints];
-    
-    
-}
+//- (void)initialiseWayPoints
+//{
+//    for (mapPoint in mapPoints) {
+//        NSLog(@"Mappoint: %@", mapPoint);
+//        // Distance from last control
+//        // Calculate opening and closing time 
+//    }
+//    
+//    // FIXME tight coupling of controller!
+//    [sender addAnnotations:mapPoints];
+//    
+//    
+//}
 
 
 #pragma mark Initialising
-- (id)initWithFile:(NSURL *)fileName sender:(id)s
+- (id)initWithFile:(NSURL *)fileName
 {
     int pointSpace = INITIAL_POINT_SPACE;
     
@@ -194,19 +217,21 @@
         // FIXME: this has to be altered if necessary!
         //        3000 trackpoints are sufficcient for max 600km.
         trackpoints = malloc(sizeof(MKMapPoint) * pointSpace);
+        coordinates = [[NSMutableArray alloc] initWithCapacity:1000];
+        
         pointCount = 0;
         
         mapPoints = [[NSMutableArray alloc] initWithCapacity:100];
+        controls = [[NSMutableArray alloc] initWithCapacity:20];
         
-        // FIXME tight coupling of controller
-        sender = s;
         [self parseXMLFile:fileName];
         startTime = [NSDate date];
-        
-        [self initialiseWayPoints];
-      
+        NSLog(@"Coordinates: %d", [coordinates count]);
+
+        [self calculateSegements];
     }
     return self;
+    
 }
 
 - (MKPolyline *)poly
@@ -220,6 +245,13 @@
 - (id)init
 {
     NSURL* url = [[NSBundle mainBundle] URLForResource:@"GpxViewer" withExtension:@"GPX"];
-    return [self initWithFile:url sender:self];
+    return [self initWithFile:url];
 }
+
+// FIXME is this correct?
+-(void) dealloc{
+    trackpoints = nil;
+}
+
 @end
+

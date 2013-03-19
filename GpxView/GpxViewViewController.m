@@ -17,20 +17,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    SHMapPoint *point = [[SHMapPoint alloc] init];
-//    [worldView addAnnotation:point];
-    
-//  NSURL* url = [[NSBundle mainBundle] URLForResource:@"GpxViewer" withExtension:@"GPX"];
-    NSURL* url = [[NSBundle mainBundle] URLForResource:@"Ardennen 300" withExtension:@"GPX"];
-    GpsTrack *track = [[GpsTrack alloc] initWithFile:url sender:self];
-    NSLog(@"Distance is: %f", [track length]);
-    MKPolyline *poly = [track poly];
-//    NSLog(@"Poly: %@, %@", poly.)
-    NSLog(@"Controls: %@", [track controls]);
-    [worldView addOverlay:poly];
-    [self showMap:[track region]];
 
+    //  NSURL* url = [[NSBundle mainBundle] URLForResource:@"GpxViewer" withExtension:@"GPX"];
+    NSURL* url = [[NSBundle mainBundle] URLForResource:@"Ardennen 300" withExtension:@"GPX"];
+
+    GpsTrack *track = [[GpsTrack alloc] initWithFile:url];
+    [worldView addAnnotations:[track controls]];
+    
+    // Draw track
+    MKPolyline *poly = [track poly];
+    [worldView addOverlay:poly];
+    [worldView setRegion:[track region] animated:YES];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
@@ -53,20 +50,41 @@
     return nil;
 }
 
+#pragma mark Annotations
 
-// DELETE this when ready for next steps
-- (void)showMap:(MKCoordinateRegion)region
+// Provides view for Pin Annotations
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    [worldView setRegion:region animated:YES];
-}
-
-- (void)addAnnotations:(NSArray *)annotations
-{
-    SHMapPoint *mapPoint;
-    for (mapPoint in annotations){
-        [worldView addAnnotation:mapPoint];
+    if ([annotation isKindOfClass:[SHMapPoint class]]) {
+        static NSString *annotationIdentifier = @"annotationIdentifier";
+        // Try to get an unused annotation
+        MKAnnotationView *annotationView = [worldView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
+        annotationView.annotation = annotation;
+        
+        // If one isn't available create a new one
+        if (!annotationView) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
+        }
+        
+        // Optional properties to change
+        [annotationView setCanShowCallout:YES];
+        [annotationView setRightCalloutAccessoryView:[UIButton buttonWithType:UIButtonTypeDetailDisclosure]];
+        
+        return annotationView;
     }
+    return nil;
 }
+
+// Show Detail View when annotation button was pressed
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    SHMapPoint *ann = [view annotation];
+    WaypointViewController *wvc = [[WaypointViewController alloc] initWithTitle:[ann title] subtitle:[ann subtitle]];
+    [wvc setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [self presentViewController:wvc animated:YES completion:^{}];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

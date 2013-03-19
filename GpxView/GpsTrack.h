@@ -21,9 +21,12 @@
     MKMapPoint *trackpoints;
     int pointCount;
     
+    NSMutableArray *coordinates;
+    
     // Used for WayPoints & Annotation
     SHMapPoint *mapPoint;
     NSMutableArray *mapPoints;
+    NSMutableArray *controls;
     
     // XML Parser variables
     NSXMLParser *addressParser;
@@ -36,7 +39,7 @@
 @property (nonatomic, copy, readonly) MKPolyline *poly;
 
 
-- (id)initWithFile:(NSURL *)fileName sender:(id)s;
+- (id)initWithFile:(NSURL *)fileName;
 - (double)length;
 - (MKCoordinateRegion)region;
 - (NSArray *)controls;

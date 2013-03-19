@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface WaypointViewController : UIViewController
+{
+    NSString *myTitle;
+    NSString *mySubtitle;
+    NSDate *myTime;
+}
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
+- (id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle;
 @end
