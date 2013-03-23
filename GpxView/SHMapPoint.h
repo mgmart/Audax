@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *flags;
 @property (nonatomic) CLLocationDistance toDistance, fromDistance;
 @property (nonatomic) NSNumber *order;
+@property (nonatomic, copy) NSNumber *nearestPointIndex;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c title:(NSString *)t;
 - (NSComparisonResult)compare:(id)obj2;

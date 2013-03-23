@@ -18,7 +18,7 @@
 #import "GpsTrack.h"
 
 @implementation GpsTrack
-@synthesize startTime, elapsedTime, remainingTime, sender;
+@synthesize startTime, elapsedTime, remainingTime, sender, segments;
 
 
 // reports back the length of the track in meters
@@ -38,23 +38,67 @@
 }
 
 // calculate segments between controls
-- (void)calculateSegements
+- (void)calculateSegments
 {
+    //
     // Find nearest Trackpoint to Waypoint
-    NSLog(@"In calculate segments");
-    CLLocationCoordinate2D prevPoint;
-  //  mapPoints sortUsingDescriptors:<#(NSArray *)#>
-    for (SHMapPoint *point in mapPoints) {
-        NSLog(@"Map point count %@", point);
-        
-        CLLocation *pointLocation = [[CLLocation alloc] initWithLatitude:point.coordinate.latitude longitude:point.coordinate.longitude];
+    //
+    [controls sortUsingSelector:@selector(compare:)];
+    for (SHMapPoint *control in controls) {
+        // Get current location from control
+        CLLocation *pointLocation = [[CLLocation alloc] initWithLatitude:control.coordinate.latitude longitude:control.coordinate.longitude];
+        CLLocationDistance distance = 300;
+        int index = 0;
         for (CLLocation *curr in coordinates){
-            if ([pointLocation distanceFromLocation:curr] < 100){
-                NSLog(@"Point: %f", [pointLocation distanceFromLocation:curr]);
+            if ([pointLocation distanceFromLocation:curr] < distance) {
+                distance = [pointLocation distanceFromLocation:curr];
+                [control setNearestPointIndex:[[NSNumber alloc] initWithInt:index]];
             }
-                
+            index++;
         }
+        // FIXME: if distance is still 300 we need to handle this!
+        // NSLog(@"Distance of control: %@ is %f and present at index: %@", [control title], distance, [control nearestPointIndex]);
     }
+    
+    //
+    // Calculate distance between controls
+    //
+    segments = [[NSMutableArray alloc] initWithCapacity:[controls count] + 1];
+    CLLocationDistance metersApart = 0.0;
+    for (int i = 0; i < [controls count] - 1; i++) {
+        // NSLog(@"Distance between: %i and %i",[[controls[i] nearestPointIndex] intValue], [[controls[i+1] nearestPointIndex] intValue]);
+        for (int j = [[controls[i] nearestPointIndex] intValue]; j < [[controls[i+1] nearestPointIndex] intValue]; j++) {
+            metersApart += MKMetersBetweenMapPoints(trackpoints[j], trackpoints[j+1]);
+        }
+        [segments addObject:[[NSNumber alloc] initWithDouble:metersApart]];
+        // NSLog(@"Distance of segment: %f", metersApart);
+        metersApart = 0.0;
+    }
+    int k = [controls count] - 1;
+    // NSLog(@"Distance between: %i and %i",[[controls[k] nearestPointIndex] intValue], pointCount);
+
+    for (int j = [[controls[k] nearestPointIndex] intValue]; j < pointCount - 1; j++) {
+        metersApart += MKMetersBetweenMapPoints(trackpoints[j], trackpoints[j+1]);
+    }
+    [segments addObject:[[NSNumber alloc] initWithDouble:metersApart]];
+    // NSLog(@"Distance of segment: %f", metersApart);
+    // NSLog(@"Segments count is: %i", [segments count]);
+    
+    [self calculateControlTimes];
+}
+
+// calculate opening and closing times for controls
+- (void)calculateControlTimes
+{
+    double total = 0.0;
+    for (NSNumber *segment in segments) {
+        // NSLog(@"NSNumber: %@", segment);
+        total += [segment doubleValue];
+    }
+    NSLog(@"Total: %f", total);
+    NSLog(@"Distance: %f", [self length]);
+    
+
 }
 
 // returns the region for the track
@@ -153,7 +197,6 @@
         range.location = 7;
         
         if ([currentStringValue hasPrefix:@"Number "]) {
-            NSLog(@"Number: %@", [currentStringValue substringWithRange:range]);
             [mapPoint setOrder:[NSNumber numberWithInteger:[[currentStringValue substringWithRange:range] integerValue]]];
         }
         [mapPoint setFlags:currentStringValue];
@@ -192,21 +235,6 @@
     // if not successful, delegate is informed of error
 }
 
-//- (void)initialiseWayPoints
-//{
-//    for (mapPoint in mapPoints) {
-//        NSLog(@"Mappoint: %@", mapPoint);
-//        // Distance from last control
-//        // Calculate opening and closing time 
-//    }
-//    
-//    // FIXME tight coupling of controller!
-//    [sender addAnnotations:mapPoints];
-//    
-//    
-//}
-
-
 #pragma mark Initialising
 - (id)initWithFile:(NSURL *)fileName
 {
@@ -228,7 +256,7 @@
         startTime = [NSDate date];
         NSLog(@"Coordinates: %d", [coordinates count]);
 
-        [self calculateSegements];
+        [self calculateSegments];
     }
     return self;
     
@@ -236,8 +264,7 @@
 
 - (MKPolyline *)poly
 {
-    NSLog(@"Pointcount for Poly is: %i", pointCount);
-    
+    // NSLog(@"Pointcount for Poly is: %i", pointCount);
     return [MKPolyline polylineWithPoints:trackpoints count:pointCount];
 
 }

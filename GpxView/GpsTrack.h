@@ -37,6 +37,8 @@
 @property (nonatomic, copy) NSDate *startTime, *elapsedTime, *remainingTime;
 @property (nonatomic, copy) id sender;
 @property (nonatomic, copy, readonly) MKPolyline *poly;
+@property (nonatomic, copy) NSMutableArray *segments;
+
 
 
 - (id)initWithFile:(NSURL *)fileName;

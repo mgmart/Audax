@@ -10,7 +10,7 @@
 
 @implementation SHMapPoint
 
-@synthesize coordinate, title, time, flags, toDistance, fromDistance, order;
+@synthesize coordinate, title, time, flags, toDistance, fromDistance, order, nearestPointIndex;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c title:(NSString *)t
 {
