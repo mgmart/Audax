@@ -18,7 +18,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        UITabBarItem *tbi = [self tabBarItem];
+        [tbi setTitle:@"At A Glance"];
+        UIImage *i = [UIImage imageNamed:@"AtAGlance"];
+        [tbi setImage:i];
     }
     return self;
 }

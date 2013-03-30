@@ -14,11 +14,15 @@
 
 @implementation SettingsViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        UITabBarItem *tbi = [self tabBarItem];
+        [tbi setTitle:@"Settings"];
+        UIImage *i = [UIImage imageNamed:@"Settings"];
+        [tbi setImage:i];
     }
     return self;
 }

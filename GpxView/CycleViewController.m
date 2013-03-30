@@ -18,7 +18,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        UITabBarItem *tbi = [self tabBarItem];
+        [tbi setTitle:@"Cycle"];
+        UIImage *i = [UIImage imageNamed:@"Cycle"];
+        [tbi setImage:i];
     }
     return self;
 }
