@@ -18,5 +18,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
-- (id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle;
+- (id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle time:(NSDate *)time;
 @end

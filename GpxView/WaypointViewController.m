@@ -23,13 +23,13 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle
+- (id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle time:(NSDate *)time
 {
     self = [super init];
     if (self) {
         myTitle = title;
         mySubtitle = subtitle;
-        myTime = [NSDate date];
+        myTime = time;
     }
     return self;
 }

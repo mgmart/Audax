@@ -79,7 +79,7 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     SHMapPoint *ann = [view annotation];
-    WaypointViewController *wvc = [[WaypointViewController alloc] initWithTitle:[ann title] subtitle:[ann subtitle]];
+    WaypointViewController *wvc = [[WaypointViewController alloc] initWithTitle:[ann title] subtitle:[ann subtitle] time:[ann time]];
     [wvc setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     [self presentViewController:wvc animated:YES completion:^{}];
     

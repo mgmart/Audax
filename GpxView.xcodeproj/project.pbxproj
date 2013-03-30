@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		743EED971706BD550081A0F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		746BCC3716F4E0AE00CF52E8 /* Ardennen 300.GPX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Ardennen 300.GPX"; sourceTree = "<group>"; };
 		74854FC316F758E600347AB9 /* WaypointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaypointViewController.h; sourceTree = "<group>"; };
 		74854FC416F758E600347AB9 /* WaypointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaypointViewController.m; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		7488048C16EA5029004E8DD0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				743EED971706BD550081A0F3 /* README.md */,
 				7488048D16EA5029004E8DD0 /* GpxView-Info.plist */,
 				748804A816EA5558004E8DD0 /* GpxViewer.GPX */,
 				746BCC3716F4E0AE00CF52E8 /* Ardennen 300.GPX */,
