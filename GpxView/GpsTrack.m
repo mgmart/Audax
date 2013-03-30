@@ -96,19 +96,15 @@
     
     // FIXME: Data input for startTime
     NSDate *myStartTime = [NSDate dateWithTimeIntervalSince1970:1364706000];
-    NSLog(@"Start Time: %@", myStartTime);
     
-    // NSDate *nextStartTime;
     int timeInterval = 0;
     int counter = 1;
     SHMapPoint *control;
     double total = 0.0;
+
     for (NSNumber *segment in segments) {
-        // distance / speed = 
-        // NSLog(@"Times: %f / %i = %f", [segment doubleValue] / 1000, minSpeed, [segment doubleValue] / 1000 / minSpeed);
         timeInterval = [segment doubleValue] / 1000 / minSpeed * 3600;
         myStartTime = [NSDate dateWithTimeInterval:timeInterval sinceDate:myStartTime];
-        // NSLog(@"Next Start Time: %@", myStartTime);
         control = [controls objectAtIndex:counter++];
         // FIXME: Start and Stop must be proper set!
         if (counter == 6) {

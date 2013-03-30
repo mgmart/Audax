@@ -9,6 +9,9 @@
 #import "GpxViewAppDelegate.h"
 
 #import "GpxViewViewController.h"
+#import "SettingsViewController.h"
+#import "CycleViewController.h"
+#import "AtAGlanceViewController.h"
 
 @implementation GpxViewAppDelegate
 
@@ -17,7 +20,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[GpxViewViewController alloc] initWithNibName:@"GpxViewViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.settingsController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    self.cycleViewController = [[CycleViewController alloc] initWithNibName:@"CycleViewController" bundle:nil];
+    self.atAGlanceViewController = [[AtAGlanceViewController alloc] initWithNibName:@"AtAGlanceViewController" bundle:nil];
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    NSArray *viewControllers = [NSArray arrayWithObjects:self.viewController, self.cycleViewController, self.atAGlanceViewController, self.settingsController, nil];
+    [self.tabBarController setViewControllers:viewControllers];
+//     self.window.rootViewController = self.viewController;
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }

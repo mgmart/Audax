@@ -14,6 +14,17 @@
 
 @implementation GpxViewViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        UITabBarItem *tbi = [self tabBarItem];
+        [tbi setTitle:@"MapView"];
+        UIImage *i = [UIImage imageNamed:@"MapView.png"];
+        [tbi setImage:i];
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
