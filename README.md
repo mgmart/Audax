@@ -1,5 +1,5 @@
 # Audax.App #
-
+![](Audax@2x.png)
 ## Overview ##
 
 Audax.App is an IOS Application to support the planning of long audax rides. It calculates opening and closing times of all control points on the track. With Audax.App you are able to forecast the time to spend at each control. It shows you the buffer-time you have to the next control as well as to the finish.
