@@ -40,6 +40,8 @@
 		74CE270817073301002ECA8F /* CycleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CE270617073301002ECA8F /* CycleViewController.xib */; };
 		74CE270C170733F7002ECA8F /* AtAGlanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE270A170733F7002ECA8F /* AtAGlanceViewController.m */; };
 		74CE270D170733F7002ECA8F /* AtAGlanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CE270B170733F7002ECA8F /* AtAGlanceViewController.xib */; };
+		74CE270F1707409F002ECA8F /* Audax.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CE270E1707409F002ECA8F /* Audax.png */; };
+		74CE2711170740A2002ECA8F /* Audax@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CE2710170740A2002ECA8F /* Audax@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		74CE2709170733F7002ECA8F /* AtAGlanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtAGlanceViewController.h; sourceTree = "<group>"; };
 		74CE270A170733F7002ECA8F /* AtAGlanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtAGlanceViewController.m; sourceTree = "<group>"; };
 		74CE270B170733F7002ECA8F /* AtAGlanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtAGlanceViewController.xib; sourceTree = "<group>"; };
+		74CE270E1707409F002ECA8F /* Audax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Audax.png; path = ../../Audax.png; sourceTree = "<group>"; };
+		74CE2710170740A2002ECA8F /* Audax@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Audax@2x.png"; path = "../../Audax@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,8 @@
 		74CE26EE1707308D002ECA8F /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				74CE2710170740A2002ECA8F /* Audax@2x.png */,
+				74CE270E1707409F002ECA8F /* Audax.png */,
 				74CE26EF1707308D002ECA8F /* AtAGlance.png */,
 				74CE26F01707308D002ECA8F /* AtAGlance@2x.png */,
 				74CE26F11707308D002ECA8F /* Cycle.png */,
@@ -268,6 +274,8 @@
 				74CE2703170730FA002ECA8F /* SettingsViewController.xib in Resources */,
 				74CE270817073301002ECA8F /* CycleViewController.xib in Resources */,
 				74CE270D170733F7002ECA8F /* AtAGlanceViewController.xib in Resources */,
+				74CE270F1707409F002ECA8F /* Audax.png in Resources */,
+				74CE2711170740A2002ECA8F /* Audax@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
