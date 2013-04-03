@@ -5,17 +5,18 @@
 //  Created by Mario Martelli on 12.03.13.
 //  Copyright (c) 2013 Schnuddel Huddel. All rights reserved.
 //
-/*
- 
-        GPXTrack
- 
- Class to manage the model of a GPS Trackfile
- 
- TODO: Introduce elevation to calculate proximate speed regarding the elevation profile of the track.
- 
- */
+//
+// 
+//        GPXTrack
+// 
+// Class to manage the model of a GPS Trackfile
+// 
+// TODO: Introduce elevation to calculate proximate speed regarding the elevation profile of the track.
+
+
 
 #import "GpsTrack.h"
+#import "SHMapPoint.h"
 
 @implementation GpsTrack
 @synthesize startTime, elapsedTime, remainingTime, sender, segments;
@@ -83,16 +84,25 @@
     [segments addObject:[[NSNumber alloc] initWithDouble:metersApart]];
     // NSLog(@"Distance of segment: %f", metersApart);
     // NSLog(@"Segments count is: %i", [segments count]);
-    
-    [self calculateControlTimes];
 }
 
 // calculate opening and closing times for controls
 - (void)calculateControlTimes
 {
+    //    The table below gives the minimum and maximum speeds for ACP brevets.
+    //
+    //    Control location (km)	Minimum Speed (km/hr)	Maximum Speed (km/hr)
+    //    0 - 200                       15                      34
+    //    200 - 400                     15                      32
+    //    400 - 600                     15                      30
+    //    600 - 1000                    11.428                  28
+    //    1000 - 1300                   13.333                  26
+    
+    // Further information: http://www.rusa.org/octime_alg.html
+    
     // FIXME: Preferences needed for velocity base
-    int minSpeed = 14;
-    int maxSpeed = 30;
+    // Calculation is easier when using m/s instead of km/h
+    float minSpeed = 15 / 3.6;
     
     // FIXME: Data input for startTime
     NSDate *myStartTime = [NSDate dateWithTimeIntervalSince1970:1364706000];
@@ -103,17 +113,24 @@
     double total = 0.0;
 
     for (NSNumber *segment in segments) {
-        timeInterval = [segment doubleValue] / 1000 / minSpeed * 3600;
+        // timeInterval = [segment doubleValue] / 1000 / minSpeed * 3600;
+        
+        total += [segment doubleValue];
+        
+        
+        timeInterval = [segment doubleValue] / minSpeed;
         myStartTime = [NSDate dateWithTimeInterval:timeInterval sinceDate:myStartTime];
+
         control = [controls objectAtIndex:counter++];
+        
         // FIXME: Start and Stop must be proper set!
         if (counter == 6) {
             counter = 0;
         }
+        
         [control setTime:myStartTime];
+        
         NSLog(@"Control: %@: %@", control.title, control.time);
-    
-        total += [segment doubleValue];
     }
     NSLog(@"Total:    %f", total);
     NSLog(@"Distance: %f", [self length]);
@@ -275,9 +292,9 @@
         NSLog(@"Coordinates: %d", [coordinates count]);
 
         [self calculateSegments];
+        [self calculateControlTimes];
     }
     return self;
-    
 }
 
 - (MKPolyline *)poly

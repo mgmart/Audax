@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-#import "SHMapPoint.h"
-#import "GpxViewViewController.h"
+// #import <CoreLocation/CoreLocation.h>
 
 #define INITIAL_POINT_SPACE 3000
+
+@class SHMapPoint;
 
 @interface GpsTrack : NSObject  <NSXMLParserDelegate>
 {
@@ -38,8 +38,6 @@
 @property (nonatomic, copy) id sender;
 @property (nonatomic, copy, readonly) MKPolyline *poly;
 @property (nonatomic, copy) NSMutableArray *segments;
-
-
 
 - (id)initWithFile:(NSURL *)fileName;
 - (double)length;

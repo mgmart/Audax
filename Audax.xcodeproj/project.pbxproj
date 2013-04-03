@@ -26,6 +26,7 @@
 		748804DE16ECF82D004E8DD0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748804DD16ECF82D004E8DD0 /* CoreLocation.framework */; };
 		748804E116ECFD4C004E8DD0 /* SHMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 748804E016ECFD4C004E8DD0 /* SHMapPoint.m */; };
 		7499153A16EF1A39007269CC /* GpsTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7499153916EF1A39007269CC /* GpsTrack.m */; };
+		74AA32E2170C967A001AED62 /* Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AA32E1170C967A001AED62 /* Controls.m */; };
 		74CE26F71707308D002ECA8F /* AtAGlance.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CE26EF1707308D002ECA8F /* AtAGlance.png */; };
 		74CE26F81707308D002ECA8F /* AtAGlance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CE26F01707308D002ECA8F /* AtAGlance@2x.png */; };
 		74CE26F91707308D002ECA8F /* Cycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CE26F11707308D002ECA8F /* Cycle.png */; };
@@ -73,6 +74,8 @@
 		748804E016ECFD4C004E8DD0 /* SHMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMapPoint.m; sourceTree = "<group>"; };
 		7499153816EF1A39007269CC /* GpsTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsTrack.h; sourceTree = "<group>"; };
 		7499153916EF1A39007269CC /* GpsTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsTrack.m; sourceTree = "<group>"; };
+		74AA32E0170C9679001AED62 /* Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controls.h; sourceTree = "<group>"; };
+		74AA32E1170C967A001AED62 /* Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controls.m; sourceTree = "<group>"; };
 		74CE26EF1707308D002ECA8F /* AtAGlance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AtAGlance.png; sourceTree = "<group>"; };
 		74CE26F01707308D002ECA8F /* AtAGlance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AtAGlance@2x.png"; sourceTree = "<group>"; };
 		74CE26F11707308D002ECA8F /* Cycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cycle.png; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				748804E016ECFD4C004E8DD0 /* SHMapPoint.m */,
 				7499153816EF1A39007269CC /* GpsTrack.h */,
 				7499153916EF1A39007269CC /* GpsTrack.m */,
+				74AA32E0170C9679001AED62 /* Controls.h */,
+				74AA32E1170C967A001AED62 /* Controls.m */,
 				74854FC316F758E600347AB9 /* WaypointViewController.h */,
 				74854FC416F758E600347AB9 /* WaypointViewController.m */,
 				74854FC516F758E600347AB9 /* WaypointViewController.xib */,
@@ -295,6 +300,7 @@
 				74CE2702170730FA002ECA8F /* SettingsViewController.m in Sources */,
 				74CE270717073301002ECA8F /* CycleViewController.m in Sources */,
 				74CE270C170733F7002ECA8F /* AtAGlanceViewController.m in Sources */,
+				74AA32E2170C967A001AED62 /* Controls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
