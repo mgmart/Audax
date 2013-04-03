@@ -26,7 +26,6 @@
     // Used for WayPoints & Annotation
     SHMapPoint *mapPoint;
     NSMutableArray *mapPoints;
-    NSMutableArray *controls;
     
     // XML Parser variables
     NSXMLParser *addressParser;

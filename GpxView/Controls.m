@@ -17,7 +17,7 @@
     if (!sharedControls) {
         sharedControls = [[super allocWithZone:nil] init];
     }
-    return sharedControls
+    return sharedControls;
 }
 
 + (id)allocWithZone:(NSZone *)zone
@@ -29,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        allControls = [[NSMutableAttributedString alloc] init];
+        allControls = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -42,5 +42,6 @@
 - (void)createControl:(SHMapPoint *)control
 {
     [allControls addObject:control];
+    [allControls sortUsingSelector:@selector(compare:)];
 }
 @end

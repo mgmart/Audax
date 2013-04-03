@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
     self.viewController = [[GpxViewViewController alloc] initWithNibName:@"GpxViewViewController" bundle:nil];
     self.settingsController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-    self.cycleViewController = [[CycleViewController alloc] initWithNibName:@"CycleViewController" bundle:nil];
+    self.cycleViewController = [[CycleViewController alloc] init];//initWithNibName:@"CycleViewController" bundle:nil];
     self.atAGlanceViewController = [[AtAGlanceViewController alloc] initWithNibName:@"AtAGlanceViewController" bundle:nil];
     
     self.tabBarController = [[UITabBarController alloc] init];

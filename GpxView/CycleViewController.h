@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CycleViewController : UITableViewController
+@interface CycleViewController : UIViewController
 
 @end

@@ -17,6 +17,7 @@
 
 #import "GpsTrack.h"
 #import "SHMapPoint.h"
+#import "Controls.h"
 
 @implementation GpsTrack
 @synthesize startTime, elapsedTime, remainingTime, sender, segments;
@@ -44,8 +45,9 @@
     //
     // Find nearest Trackpoint to Waypoint
     //
-    [controls sortUsingSelector:@selector(compare:)];
-    for (SHMapPoint *control in controls) {
+    
+    NSArray *controls = [[Controls sharedControls] allControls];
+    for (SHMapPoint *control in controls){
         // Get current location from control
         CLLocation *pointLocation = [[CLLocation alloc] initWithLatitude:control.coordinate.latitude longitude:control.coordinate.longitude];
         CLLocationDistance distance = 300;
@@ -121,7 +123,7 @@
         timeInterval = [segment doubleValue] / minSpeed;
         myStartTime = [NSDate dateWithTimeInterval:timeInterval sinceDate:myStartTime];
 
-        control = [controls objectAtIndex:counter++];
+        control = [[[Controls sharedControls] allControls] objectAtIndex:counter++];
         
         // FIXME: Start and Stop must be proper set!
         if (counter == 6) {
@@ -215,7 +217,7 @@
     if ([elementName isEqualToString:@"wpt"]) {
         [mapPoints addObject:mapPoint];
         if ([mapPoint order]) {
-            [controls addObject:mapPoint];
+            [[Controls sharedControls] createControl:mapPoint];
         }
         topLevel = nil;
         currentStringValue = nil;
@@ -285,7 +287,6 @@
         pointCount = 0;
         
         mapPoints = [[NSMutableArray alloc] initWithCapacity:100];
-        controls = [[NSMutableArray alloc] initWithCapacity:20];
         
         [self parseXMLFile:fileName];
         startTime = [NSDate date];
