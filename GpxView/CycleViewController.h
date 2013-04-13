@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CycleViewController : UIViewController
+@interface CycleViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

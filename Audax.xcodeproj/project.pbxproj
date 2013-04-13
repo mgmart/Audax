@@ -27,6 +27,8 @@
 		748804DE16ECF82D004E8DD0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748804DD16ECF82D004E8DD0 /* CoreLocation.framework */; };
 		748804E116ECFD4C004E8DD0 /* SHMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 748804E016ECFD4C004E8DD0 /* SHMapPoint.m */; };
 		7499153A16EF1A39007269CC /* GpsTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7499153916EF1A39007269CC /* GpsTrack.m */; };
+		74A7D4B7171295D900A0EB87 /* ControlDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A7D4B5171295D900A0EB87 /* ControlDetailsViewController.m */; };
+		74A7D4B8171295D900A0EB87 /* ControlDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A7D4B6171295D900A0EB87 /* ControlDetailsViewController.xib */; };
 		74AA32E2170C967A001AED62 /* Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AA32E1170C967A001AED62 /* Controls.m */; };
 		74CE26F71707308D002ECA8F /* AtAGlance.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CE26EF1707308D002ECA8F /* AtAGlance.png */; };
 		74CE26F81707308D002ECA8F /* AtAGlance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CE26F01707308D002ECA8F /* AtAGlance@2x.png */; };
@@ -75,6 +77,9 @@
 		748804E016ECFD4C004E8DD0 /* SHMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMapPoint.m; sourceTree = "<group>"; };
 		7499153816EF1A39007269CC /* GpsTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsTrack.h; sourceTree = "<group>"; };
 		7499153916EF1A39007269CC /* GpsTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsTrack.m; sourceTree = "<group>"; };
+		74A7D4B4171295D900A0EB87 /* ControlDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlDetailsViewController.h; sourceTree = "<group>"; };
+		74A7D4B5171295D900A0EB87 /* ControlDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlDetailsViewController.m; sourceTree = "<group>"; };
+		74A7D4B6171295D900A0EB87 /* ControlDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlDetailsViewController.xib; sourceTree = "<group>"; };
 		74AA32E0170C9679001AED62 /* Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controls.h; sourceTree = "<group>"; };
 		74AA32E1170C967A001AED62 /* Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controls.m; sourceTree = "<group>"; };
 		74CE26EF1707308D002ECA8F /* AtAGlance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AtAGlance.png; sourceTree = "<group>"; };
@@ -153,12 +158,15 @@
 				74CE270417073301002ECA8F /* CycleViewController.h */,
 				74CE270517073301002ECA8F /* CycleViewController.m */,
 				743477B5170CA2E000CB7BDA /* CycleViewController.xib */,
+				74A7D4B4171295D900A0EB87 /* ControlDetailsViewController.h */,
+				74A7D4B5171295D900A0EB87 /* ControlDetailsViewController.m */,
+				74A7D4B6171295D900A0EB87 /* ControlDetailsViewController.xib */,
 				7488049D16EA5029004E8DD0 /* GpxViewViewController.h */,
 				7488049E16EA5029004E8DD0 /* GpxViewViewController.m */,
+				748804A016EA5029004E8DD0 /* GpxViewViewController.xib */,
 				74CE26FF170730FA002ECA8F /* SettingsViewController.h */,
 				74CE2700170730FA002ECA8F /* SettingsViewController.m */,
 				74CE2701170730FA002ECA8F /* SettingsViewController.xib */,
-				748804A016EA5029004E8DD0 /* GpxViewViewController.xib */,
 				748804DF16ECFD4C004E8DD0 /* SHMapPoint.h */,
 				748804E016ECFD4C004E8DD0 /* SHMapPoint.m */,
 				7499153816EF1A39007269CC /* GpsTrack.h */,
@@ -281,6 +289,7 @@
 				74CE270F1707409F002ECA8F /* Audax.png in Resources */,
 				74CE2711170740A2002ECA8F /* Audax@2x.png in Resources */,
 				743477B6170CA2E000CB7BDA /* CycleViewController.xib in Resources */,
+				74A7D4B8171295D900A0EB87 /* ControlDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +310,7 @@
 				74CE270717073301002ECA8F /* CycleViewController.m in Sources */,
 				74CE270C170733F7002ECA8F /* AtAGlanceViewController.m in Sources */,
 				74AA32E2170C967A001AED62 /* Controls.m in Sources */,
+				74A7D4B7171295D900A0EB87 /* ControlDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

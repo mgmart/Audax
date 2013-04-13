@@ -28,7 +28,7 @@
 
 - (NSString *)description
 {
-    return [[NSString alloc] initWithFormat:@"Title: %@, Order: %@, Symbol: %@", title, order, flags];
+    return [[NSString alloc] initWithFormat:@"%@, %@, %@", title, order, flags];
 }
 
 /*

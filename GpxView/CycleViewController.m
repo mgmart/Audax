@@ -7,6 +7,8 @@
 //
 
 #import "CycleViewController.h"
+#import "Controls.h"
+#import "SHMapPoint.h"
 
 @interface CycleViewController ()
 
@@ -38,4 +40,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[[Controls sharedControls] allControls] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
+        [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+    }
+    SHMapPoint *p = [[[Controls sharedControls] allControls] objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[p title]];
+    [[cell detailTextLabel] setText:[p subtitle]];
+
+    return cell;
+
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"IndexPath: %@", indexPath);
+}
 @end
